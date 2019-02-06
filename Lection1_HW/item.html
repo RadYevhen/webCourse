@@ -7,28 +7,71 @@
         <title>Create/change/delete</title>
     </head>
     <body>
-            <table>
-                    <caption>Create/change/delete</caption>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p align="center">
-                                    <input type="button" id="button1" value="Create" enabled>
-                                </p>
-                            </td>
-                            <td>
-                                <p align="center">
-                                    <input type="button" id="button2" value="Change" enabled>
-                                </p>
-                            </td>
-                            <td>
-                                <p align="center">
-                                    <input type="button" id="button3" value="Delete" disabled>
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <form action="items.html" method="post">
+            <br>
+            <input type="hidden" name="">
+            <br>
+            <input type="button" id="button" value="Change" disabled>
+            <br>
+            <label for="text">Name</label>
+            <input type="text" name="" id="text" required>
+            <br>
+            <label for="email">e-mail</label>
+            <input type="email" name="" id="email">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" name="" id="password">
+            <br>
+            <label for="rb1">Male</label>
+            <input type="radio" name="rbg" id="rb1">
+            
+            <label for="rb2">Female</label>
+            <input type="radio" name="rbg" id="rb2">
+            <br>
+            <label for="checkbox">Adult</label>
+            <input type="checkbox" name="" id="checkbox">
+            <br>
+            <label for="file">Download file</label>
+            <input type="file" name="" id="file">
+            <br>
+            <label for="image"></label>
+            <input type="image" src="Resources/Images/800px.jpg" id="image" alt="">
+            <br>
+            <label for="date">Birthday</label>
+            <input type="date" name="" id="date">
+            <br>
+            <label for="time">Birth time</label>
+            <input type="time" name="" id="time">
+            <br>
+            <label for="color">Favorite color</label>
+            <input type="color" name="" id="color">
+            <br>
+            <label for="number">Favorite number</label>
+            <input type="number" name="" id="number">
+            <br>
+            <label for="tel">Phone number</label>
+            <input type="tel" name="" id="tel">
+            <br>
+            <label for="week">Favorite day of the week</label>
+            <input type="week" name="" id="week">
+            <br>
+            <label for="search">Search</label>
+            <input type="search" q="googlesearch" name="" id="search">
+            <br>
+            <label for="url">URL</label>
+            <input type="url" name="" id="url">
+            <br>
+            <label for="range" >Range like slider</label>
+            <input type="range" min="1" max="100" name="" id="range">
+            <br>
+            <label for="reset">Clear</label>
+            <input type="reset" value="reset">
+            <br>
+            <label for="submit">Submit</label>
+            <input type="submit" value="submit">
+    
+    
+        </form>
 
         <br>
         <a href="items.html" type="text/html">Back</a>
