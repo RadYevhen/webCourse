@@ -1,0 +1,43 @@
+body {
+	height: 900px;
+}
+
+.header {
+	width: 90%;
+	margin: 0 5% 0 5%;
+	height: 15%;
+	background-color: rgb(150, 187, 19);
+	border-radius: 0 0 15px 15px;
+}
+
+.body {
+	height: 70%;
+	width: 100%;
+}
+
+.footer {
+	height: 15%;
+	width: 90%;
+	margin: 0 5% 0 5%;
+	background-color: rgb(150, 187, 19);
+	border-radius: 15px 15px 0 0;
+}
+
+.footer span {
+	margin: 5%;
+}
+
+#menu {
+	width: 10%;
+	position: fixed;
+	left: 0;
+	height: 600px;
+	top: 0%;
+}
+
+#middle {
+	width: 85%;
+	margin: 0 5% 0 10%;
+	height: 100%;
+	padding: 0 0 0 1rem;
+}

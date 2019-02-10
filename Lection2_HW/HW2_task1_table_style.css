@@ -1,0 +1,28 @@
+table {
+	min-width: 100%; 
+	border-spacing: 0.8rem;
+}
+
+.separator td{
+	height: 0.1rem;
+}
+
+.orange td{
+	background-color: orange;
+	height: 5rem;
+}
+
+.yellow td{
+	background-color: yellow;
+	height: 20rem;
+}
+
+.blue td{
+	background-color: blue;
+	height: 15rem;
+}
+
+.gray td{
+	background-color: gray;
+	height: 10rem;
+}
