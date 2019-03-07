@@ -1,4 +1,5 @@
-function Computer(typeOfProcessor, number, Frequency, HTT, ArchitectureBitDepth, Manufacturer, GraficCard, RAMSize, HardDiskSize) {
+function Computer(typeOfProcessor, number, Frequency, HTT, ArchitectureBitDepth, Manufacturer, GraficCard, RAMSize, HardDiskSize) 
+{
     this.typeOfProcessor = typeOfProcessor;
     this.number = number;
     this.Frequency = Frequency;
@@ -9,55 +10,72 @@ function Computer(typeOfProcessor, number, Frequency, HTT, ArchitectureBitDepth,
     this.RAMSize = RAMSize;
     this.HardDiskSize = HardDiskSize;
 
-    this.getTypeOfProcessor = function () {
+    this.getTypeOfProcessor = function () 
+    {
         return this.getTypeOfProcessor;
     }
-    this.getNumber = function () {
+    this.getNumber = function () 
+    {
         return this.number;
     }
-    this.setNumber = function (number) {
+    this.setNumber = function (number) 
+    {
         this.number = number;
     }
-    this.getFrequency = function () {
+    this.getFrequency = function () 
+    {
         return this.Frequency;
     }
-    this.setFrequency = function (Frequency) {
+    this.setFrequency = function (Frequency) 
+    {
         this.Frequency = Frequency;
     }
-    this.getHTT = function () {
+    this.getHTT = function () 
+    {
         return this.HTT;
     }
-    this.setHTT = function (HTT) {
+    this.setHTT = function (HTT) 
+    {
         this.HTT = HTT;
     }
-    this.getArchitectureBitDepth = function () {
+    this.getArchitectureBitDepth = function () 
+    {
         return this.ArchitectureBitDepth;
     }
-    this.setArchitectureBitDepth = function (ArchitectureBitDepth) {
+    this.setArchitectureBitDepth = function (ArchitectureBitDepth) 
+    {
         this.ArchitectureBitDepth = ArchitectureBitDepth;
     }
-    this.getManufacturer = function () {
+    this.getManufacturer = function () 
+    {
         return this.Manufacturer;
     }
-    this.setManufacturer = function (Manufacturer) {
+    this.setManufacturer = function (Manufacturer) 
+    {
         this.Manufacturer = Manufacturer;
     }
-    this.getGraficCard = function () {
+    this.getGraficCard = function () 
+    {
         return this.GraficCard;
     }
-    this.setGraficCard = function (GraficCard) {
+    this.setGraficCard = function (GraficCard) 
+    {
         this.GraficCard = GraficCard;
     }
-    this.getRAMSize = function () {
+    this.getRAMSize = function () 
+    {
         return this.RAMSize;
     }
-    this.setRAMSize = function (RAMSize) {
+    this.setRAMSize = function (RAMSize) 
+    {
         this.RAMSize = RAMSize;
     }
-    this.getHardDiskSize = function () {
+    this.getHardDiskSize = function () 
+    {
         return this.HardDiskSize;
     }
-    this.setHardDiskSize = function (HardDiskSize) {
+    this.setHardDiskSize = function (HardDiskSize) 
+    {
         this.HardDiskSize = HardDiskSize;
     }
 
