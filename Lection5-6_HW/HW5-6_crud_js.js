@@ -50,7 +50,6 @@
     document.addEventListener("DOMContentLoaded", function () 
     {
         var form = document.getElementById("mainForm");
-        var output = document.getElementById("output");
         var addButton = document.getElementById("add");
         var updateButton = document.getElementById("update");
         var deleteButton = document.getElementById("delete");
