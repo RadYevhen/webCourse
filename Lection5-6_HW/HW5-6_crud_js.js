@@ -4,10 +4,10 @@
     {
         var elements = form.querySelectorAll("input, select, textarea");
         var obj;
-        if (elements[1].value == "Intel") {
-            obj = new Ultrabook(elements[1].value);
-        } else if (elements[1].value == "AMD") {
-            obj = new ComputingServer(elements[1].value);
+        if (elements[2].value == "Intel") {
+            obj = new Ultrabook(elements[2].value);
+        } else if (elements[2].value == "AMD") {
+            obj = new ComputingServer(elements[2].value);
         } else {
             return "";
         }
@@ -69,9 +69,9 @@
 					modifyTable();
 				}
             });
-            xhr.open("POST", "http://195.50.2.67:2403/yevhen-radchenko-collection");
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(json);
+            xmlRequest.open("POST", "http://195.50.2.67:2403/yevhen-radchenko");
+			xmlRequest.setRequestHeader("Content-Type", "application/json");
+			xmlRequest.send(json);
         }, false);
 
         updateButton.addEventListener('click', function (e) 
@@ -89,9 +89,9 @@
 					modifyTable();
 				}
             });
-            xhr.open("PUT", "http://195.50.2.67:2403/yevhen-radchenko-collection/" + + document.getElementById("user_id").value);
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(json);
+            xmlRequest.open("PUT", "http://195.50.2.67:2403/yevhen-radchenko/" + document.getElementById("user_id").value);
+			xmlRequest.setRequestHeader("Content-Type", "application/json");
+			xmlRequest.send(json);
         }, false);
 
         deleteButton.addEventListener('click', function (e) 
@@ -109,9 +109,9 @@
 					modifyTable();
 				}
             });
-            xhr.open("DELETE", "http://195.50.2.67:2403/yevhen-radchenko-collection/" + + document.getElementById("user_id").value);
-			xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send();
+            xmlRequest.open("DELETE", "http://195.50.2.67:2403/yevhen-radchenko/" + document.getElementById("user_id").value);
+			xmlRequest.setRequestHeader("Content-Type", "application/json");
+            xmlRequest.send();
 
         }, false);
 
@@ -121,24 +121,24 @@
 
 })();
 
-function onRowClick(tableId, callback) 
+function onRowClick(tabId, callback) 
 {
-	var table = document.getElementById(tab),
+	var table = document.getElementById(tabId),
 		rows = table.getElementsByTagName("tr"),
 		i;
-    for (i = 0; i < rows.length; i++) 
+    for (i = 0; i < rows.length; i++)
     {
-        table.rows[i].onclick = function (row) 
+        rows[i].onclick = function (row) 
         {
             return function () 
             {
 				callback(row);
 			};
-		}(table.rows[i]);
+		}(rows[i]);
 	}
 };
 
-function updateDataTable() 
+function modifyTable() 
 {
 	xmlRequest_mod_table = new XMLHttpRequest();
 	xmlRequest_mod_table.withCredentials = true;
@@ -147,19 +147,18 @@ function updateDataTable()
         if (this.readyState === 4) 
         {
 			result = JSON.parse(this.response);
-			var resultTBody = document.createElement('tbody');
+			var resultTabBody = document.createElement('TabBody');
             result.map(function (nthCPU) 
             {
-				resultTBody.appendChild(parseResponeRowToTableRow(nthCPU));
+				resultTabBody.appendChild(parseResponeRowToTableRow(nthCPU));
 			});
 
-			var table = document.getElementById('TBody').parentElement;
-			table.replaceChild(resultTBody, document.getElementById('TBody'));
-			resultTBody.id = 'TBody';
+			var table = document.getElementById('TabBody').parentElement;
+			table.replaceChild(resultTabBody, document.getElementById('TabBody'));
+			resultTabBody.id = 'TabBody';
 			console.log('success');
 
-			//add listener to table rows
-			onRowClick("TResult", function (row) {
+			onRowClick("tab", function (row) {
 				var curID = row.getElementsByTagName("th")[0].innerHTML;
 				console.log("Current ID>>", curID);
 
@@ -179,9 +178,9 @@ function updateDataTable()
 		}
 	});
 
-	xhr_upd_table.open("GET", "http://195.50.2.67:2403/yevhen-radchenko-collection");
-	xhr_upd_table.setRequestHeader("Content-Type", "application/json");
-	xhr_upd_table.send();
+	xmlRequest_mod_table.open("GET", "http://195.50.2.67:2403/yevhen-radchenko");
+	xmlRequest_mod_table.setRequestHeader("Content-Type", "application/json");
+	xmlRequest_mod_table.send();
 
 };
 
@@ -189,9 +188,9 @@ function parseResponeRowToTableRow(rows)
 {
 	var row = document.createElement('tr');
 
-	user_id = document.createElement('th');
-	user_id.innerText = rows['user_id'];
-	row.appendChild(user_id);
+	id = document.createElement('th');
+	id.innerText = rows['id'];
+	row.appendChild(id);
 
 	number = document.createElement('td');
 	number.innerText = rows['number'];
@@ -228,23 +227,6 @@ function parseResponeRowToTableRow(rows)
     HardDiskSize = document.createElement('td');
 	HardDiskSize.innerText = rows['HardDiskSize'];
 	row.appendChild(HardDiskSize);
-
-	creationDate = document.createElement('td');
-	var accountCreationDate = new Date(rows['creationDate']);
-    MyDateString = ('000' + accountCreationDate.getFullYear()).slice(-4) + '-' + 
-                   ('0' + (accountCreationDate.getMonth() + 1)).slice(-2) + '-' + 
-                   ('0' + accountCreationDate.getDate()).slice(-2);
-        
-	creationDate.innerText = MyDateString;
-	row.appendChild(creationDate);
-
-	user = document.createElement('td');
-	user.innerText = rows['user'];
-	row.appendChild(user);
-
-	userType = document.createElement('td');
-	userType.innerText = rows['userType'];
-	row.appendChild(userType);
 
 	return row;
 };
